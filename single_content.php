@@ -44,19 +44,19 @@ if( mysql_num_rows($result_post) == 1 ){
 	//loop it
 	while( $row_post = mysql_fetch_array($result_post) ){
 ?>
-<div id="single_content">
-<div class="post">
-	<h2><?php echo $row_post['title']; ?></h2>
-	<div class="entry">
-    	<?php echo $row_post['body']; ?>
-    </div>
-       
-    <div class="meta">
-    	Posted on <?php echo $row_post['date']; ?> in the category <a href="index.php?page=category&amp;category_id=<?php 
-		echo $row_post['category_id']; ?>"><?php echo $row_post['name'] ?></a>
-    </div>	
-<hr />    
-</div>
+<div class="single_content">
+	<div class="post">
+		<h2><?php echo $row_post['title']; ?></h2>
+		<div class="entry">
+	    	<?php echo $row_post['body']; ?>
+	    </div>
+	       
+	    <div class="meta">
+	    	Posted on <?php echo $row_post['date']; ?> in the category <a href="index.php?page=category&amp;category_id=<?php 
+			echo $row_post['category_id']; ?>"><?php echo $row_post['name'] ?></a>
+	    </div>	
+	<hr />    
+	</div>
 <!---close post------>
 
 

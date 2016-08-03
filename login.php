@@ -8,7 +8,7 @@ require_once('functions.php');
 	
 	//after they press the button, compare with what they typed in to the correct values
 	
-	if( $_POST['did_login'] == true ){
+	if( $_POST['did_login'] == true ) {
 		//extract the values they typed
 		$input_username = clean_input($_POST['username']);
 		$original_password = clean_input($_POST['password']);
@@ -83,53 +83,64 @@ elseif ($_COOKIE['login'] == true){
 }
 	
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Login to your account</title>
-<link href="format.css" rel="stylesheet" type="text/css" />
+	<meta charset="UTF-8">
+	<title>Login to your account</title>
+	<link href="css/grid.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+
+	<script src="js/jquery-3.1.0.min.js"></script>
+	<script src="js/custom.js"></script>
 </head>
 
-<body>
+<body class="login-page">
 
-<?php if( $_SESSION['logged_in'] != true ){ //if not logged in ?>
+<?php include('includes/header.php'); ?>
 
-<div id="log_header">
-<h1>Login To Your Account</h1>
+<div class="wrapper">
 
-<div id="log_content">
-<?php
-//if there is an error message, show it
-if($error == true){
-	echo '<h2>Incorrect Username or Password, Try again.</h2>';	
-}
-?>
+	<?php if( $_SESSION['logged_in'] != true ){ //if not logged in ?>
 
-<form action="login.php" method="post" id="log_form">
+	<div class="container">
+		<header class="log_header">
+			<h1>Login To Your Account</h1>
+		</header>
+	<?php
+	//if there is an error message, show it
+	if($error == true){
+		echo '<h2>Incorrect Username or Password, Try again.</h2>';	
+	}
+	?>
 
-	<label for="username">Username:</label>
-    <input type="text" name="username" id="username" class="username" />
-    
-    <label for="password">Password:</label>
-    <input type="password" name="password" id="password" class="password" />
-    <input type="submit" value="Login"  class="button" />
-    <input type="hidden" name="did_login" value="true" />
-    
-</form>
-</div>
-</div>
-<?php }else{ //end if not logged in?>  
+		<form action="login.php" method="post" id="log_form">
+			<label for="username">Username:</label>
+		    <input type="text" name="username" id="username" class="username" />
+		    
+		    <label for="password">Password:</label>
+		    <input type="password" name="password" id="password" class="password" />
+		    <input type="submit" value="Login"  class="button" />
+		    <input type="hidden" name="did_login" value="true" />	  
+		</form>
+	</div>
 
 
-   <h1>Welcome! <?php echo $_SESSION['user']; ?> You are logged in!</h1>
-	<p><a href="login.php?action=logout">Log Out</a></p>
-    <p><a href="protected.php?</a></p>
-    
-   
-    
-<?php } ?>
+	<?php } else{ //end if not logged in?>  
 
-</div>
+
+	   <h1>Welcome! <?php echo $_SESSION['user']; ?> You are logged in!</h1>
+		<p><a href="login.php?action=logout">Log Out</a></p>
+	    <p><a href="protected.php?"</a></p>
+	    
+	   
+	    
+	<?php } ?>
+
+	</div><!-- close wrapper -->
+	
+
+	<?php include('includes/footer.php'); ?>
+
 </body>
 </html>
