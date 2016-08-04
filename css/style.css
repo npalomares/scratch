@@ -42,7 +42,12 @@ footer, header, hgroup, menu, nav, section {
 .text-center {
 	text-align: center;
 }
-
+.close {
+	display: none;
+}
+.open {
+	display: block;
+}
 
 body{
 	background-color: #FFF;
@@ -290,15 +295,21 @@ h3.widget-title {
 /*-----------Universal Form Styles----------------*/
 input[type="text"],
 input[type="email"],
+input[type="password"] {
+	height: 30px;
+}
+
+input[type="text"],
+input[type="email"],
 input[type="password"],
 textarea {
 	width: 100%;
 	margin-top: 3px;
-	margin-bottom: 25px;	
-	border-radius: 4px;
-	height: 20px;
+	margin-bottom: 10px;	
+	border-radius: 0;
 	border: 1px solid #CCC;
 	padding: 3px 10px;
+	color: #555;
 }
 label{
 	font-family:tahoma;
@@ -337,12 +348,8 @@ label{
 
 /*-----------Login Form Styles----------------*/
 
-.log_header{
-	width:960px;
-	margin:auto;
-	background-color:#999;	
-}
-.log_header h1{
+
+/*.log_header h1{
 	line-height:90px;
 	font-family:tahoma;
 	font-size:30px;
@@ -350,44 +357,25 @@ label{
 	padding-left:320px;
 }
 .log_content{
-	width:400px;
-	margin:auto;
-	padding-bottom:200px;
+	width: 400px;
+	margin: auto;
+	padding-bottom: 200px;
 	
 }
 .log_form{
 	background-color:#666;
 	border-radius:8px;
 	padding:40px;
-}
+}*/
 /*-----------END Login Form Styles----------------*/
 
 
 /*-----------Registration Form Styles----------------*/
 
-#reg-header{
-	width:960px;
-	margin:auto;
-	background-color:#999;	
+.register-wrap {
+	padding: 10px 20px;
 }
-#reg-header h1{
-	line-height:90px;
-	font-family:tahoma;
-	font-size:30px;
-	color:#333333;	
-	padding-left:320px;
-}
-#reg-content{
-	width:400px;
-	margin:auto;
-	padding-bottom:200px;
-	
-}
-#reg_form{
-	background-color:#666;
-	border-radius:8px;
-	padding:40px;
-}
+
 /*-----------END Registration Form Styles----------------*/
 
 

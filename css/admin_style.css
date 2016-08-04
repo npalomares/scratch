@@ -1,0 +1,60 @@
+@charset "utf-8";
+/* =RESET */
+body, html {
+	margin:0;
+	padding:0;
+	height:100%;
+	font-family:Tahoma, Geneva, sans-serif;
+}
+h1, h2, h3, h4, h5, h6, p, ul, ol, li, form {
+	margin:0;
+	padding:0;
+}
+input {
+	vertical-align:bottom;
+}
+/* = basic layout */
+#header {
+	background-color:#EEE;
+}
+#header h1, #content, #footer {
+	padding:10px;
+}
+#footer {
+	background-color:#EEE;
+	padding:10px;
+}
+ul.menu {
+	background-color:#666;
+}
+ul.menu a {
+	display:block;
+	margin-left:3px;
+	padding:10px;
+	color:white;
+	text-decoration:none;
+}
+ul.menu a:hover, ul.menu a:focus {
+	background-color:#333;
+}
+.menu li, .utilities li {
+	display:inline-block;
+	margin-right:10px;
+}
+ul.utilities {
+	position:absolute;
+	top:5px;
+	right:5px;
+}
+.utilities a {
+	text-decoration:none;
+}
+#content ul{
+	margin:20px;	
+}
+#content h2, #content h3, #content h4 {
+	margin:1em 0 .25em 0px
+}
+#content h3 {
+	border-top:1px solid #CCC;
+}

@@ -1,26 +1,3 @@
-<?php 
-require('db.php');
-require_once('functions.php');
-//figure out what page to show
-$page = $_GET['page'];
-?>
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<title>NPalomares - Home Page</title>
-<link href="css/grid.css" rel="stylesheet">
-<link href="css/style.css" rel="stylesheet">
-
-<script src="js/jquery-3.1.0.min.js"></script>
-<script src="js/custom.js"></script>
-</head>
-
-<body class="<?php echo $page; ?>">
-
-
 <!-- Include the Header -->
 <?php include('includes/header.php'); ?>
 
@@ -39,6 +16,9 @@ $page = $_GET['page'];
 			//switch to determine what content to show
 			//url will look something like index.php?page=blog
 			switch($page){
+					case 'register':
+					include('register.php');
+					break;
 					case 'blog':
 					include('blog_content.php');
 					break;
@@ -62,12 +42,13 @@ $page = $_GET['page'];
 	</div><!-- close container --> 
 </div><!-- close wrapper -->
 
+<script src="js/jquery-3.1.0.min.js"></script>
+<script src="js/custom.js"></script>
+
 
 <!-- include the footer -->
 <?php include('includes/footer.php'); ?>
 
-  
-</div>
-<!--END WRAPPER-->
-</body>
-</html>
+
+
+

@@ -110,44 +110,48 @@ if($_REQUEST['did_register'] == 1){
 	
 }//end if pressed the button
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Registration</title>
-<link href="format.css" rel="stylesheet" type="text/css" />
-</head>
 
-<body>
-<div id="reg-header">
-<h1>Sign up for an Account</h1>
+<body class="register">
 
-<div id="reg-content">
-<?php
-if( isset($msg) ){
-	echo $msg;	
-}
-?>
+<!-- Include the Header -->
+<?php include('includes/header.php'); ?>
 
-<form method="post" action="register.php" id="reg_form">
-	<label for="username">Create a Username:</label>
-    <input type="text" name="username" class="username" />
-    <label for="email">Your Email Address:</label>
-    <input type="text" name="email" class="email" />
-    <label for="password">Create a Password:</label>
-    <input type="password" name="password" class="password" />
-    <label for="repassword">Retype Your Password:</label>
-    <input type="password" name="repassword" class="repassword" />
-    
-    <input type="checkbox" name="policy" class="policy" value="1" />
-    <label for="policy">Yes, I have read and agree to the<br /> <a href="#">terms of service and privacy policy</a>. </label>
-    
-    <input type="submit" value="Register" class="button" />
-    <input type="hidden" name="did_register" value="1" />
 
-</form>
-</div><!--close content-->
-</div><!--close header-->
+<div class="wrapper">
+	<div class="container">
+		<h1>Sign up for an Account</h1>
 
-</body>
-</html>
+		<?php
+		if( isset($msg) ){
+			echo $msg;	
+		}
+		?>
+
+		<form method="post" action="register.php" class="reg_form">
+			<label for="username">Create a Username:</label>
+		    <input type="text" name="username" class="username" />
+		    <label for="email">Your Email Address:</label>
+		    <input type="text" name="email" class="email" />
+		    <label for="password">Create a Password:</label>
+		    <input type="password" name="password" class="password" />
+		    <label for="repassword">Retype Your Password:</label>
+		    <input type="password" name="repassword" class="repassword" />
+		    
+		    <input type="checkbox" name="policy" class="policy" value="1" />
+		    <label for="policy">Yes, I have read and agree to the<br /> 
+		    	<a href="#">terms of service and privacy policy</a>. 
+		    </label>
+		    
+		    <input type="submit" value="Register" class="button" />
+		    <input type="hidden" name="did_register" value="1" />
+
+		</form>
+	</div><!-- close container -->
+</div><!-- close wrapper -->
+
+<?php include('includes/footer.php'); ?>
+
+
+
+
+

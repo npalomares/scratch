@@ -10,26 +10,18 @@ if($_COOKIE['login'] == true){
 	$_SESSION['is_admin'] = $_COOKIE['is_admin'];
 }
  ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Admin - Blog</title>
+<meta charset="utf-8">
+<title>Admin Dashboard - Npalomares</title>
 
-<style type="text/css">
-	label,
-	input[type=submit],
-	select{
-		display:block;	
-	}
-	input[type=checkbox] + label{
-		display:inline;	
-	}
-</style>
-<link href="admin_style.css" rel="stylesheet" type="text/css" />
+<link href="css/grid.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+<link href="css/admin_style.css" rel="stylesheet">
 </head>
 
-<body>
+<body class="dashboard">
 <?php
 //make sure a logged in person is viewing this page!
 if($_SESSION['logged_in'] == true){
@@ -37,12 +29,12 @@ if($_SESSION['logged_in'] == true){
 	$user_id = $_SESSION['user_id'];
  ?>
 
-<div id="wrapper">
-	<div id="header">
-    	<h1>Manage Your Blog</h1>
-        
-        <ul class="utilities">
-        	<li>			
+<header class="header" role="banner">
+	<div class="container">
+		<h1>Manage Your Blog</h1>
+	    
+	    <ul class="utilities">
+	    	<li class="username">			
 			<?php 
 			//get the name of the logged in person for a welcome message
 			$query_username = "SELECT user_name
@@ -53,59 +45,62 @@ if($_SESSION['logged_in'] == true){
 			$row_username = mysql_fetch_array($result_username);
 			echo 'Welcome ' . $row_username['username'];
 			?>
-            </li>
-            
-            <li class="viewblog"><a href="index.php">View Blog</a></li>
-            <li class="logout"><a href="login.php?action=logout">Log Out</a></li>
-        </ul>
-        
-        
-        
-        <ul class="nav">
-        	<li><a href="admin.php">Dashboard</a></li>
-            <li><a href="admin.php?page=write">Write Post</a></li>
-            <li><a href="admin.php?page=manage">Manage Posts</a></li>
-            <li><a>Manage Comments</a></li>
-            <li><a href="admin.php?page=profile">Edit Profile</a></li>
-        </ul>
-    
-    </div><!-- closes header -->
-   
-    <div id="content">
-    	<?php
-		//switch based upon which admin page to show
-		//URL will look like admin.php?page=edit
-		switch($_REQUEST['page']){
-			case 'write':
-				include('admin-write.php');
-			break;
-			case 'profile':
-				include('admin-profile.php'); //upload script
-			break;	
-			case 'manage':
-				include('admin-manage.php'); 
-			break;
-			case 'edit':
-				include('admin-edit.php'); 
-			break;					
-			default:
-				include('admin-dashboard.php');
-		}
-		 ?>
-    
-    </div><!-- closes content -->
-    
-    <div id="footer">
-    	&copy; 2012 Platt College <br />
-        Powered by PHP &amp; MySQL    
-    </div><!-- closes footer -->
+			<p><?php echo "hello, " . $row_username['username']; ?></p>
+	        </li>
+	        
+	        <li class="viewblog"><a href="index.php">View Blog</a></li>
+	        <li class="logout"><a href="login.php?action=logout">Log Out</a></li>
+	    </ul>
+	    
+	    
+	    
+	    <ul class="nav">
+	    	<li><a href="admin.php">Dashboard</a></li>
+	        <li><a href="admin.php?page=write">Write Post</a></li>
+	        <li><a href="admin.php?page=manage">Manage Posts</a></li>
+	        <li><a>Manage Comments</a></li>
+	        <li><a href="admin.php?page=profile">Edit Profile</a></li>
+	    </ul>	
+	</div>
+</header><!-- closes header -->
+
+<div class="wrapper">
+	<div class="container">   
+	    <div class="content">
+	    	<?php
+			//switch based upon which admin page to show
+			//URL will look like admin.php?page=edit
+			switch($_REQUEST['page']){
+				case 'write':
+					include('admin-write.php');
+				break;
+				case 'profile':
+					include('admin-profile.php'); //upload script
+				break;	
+				case 'manage':
+					include('admin-manage.php'); 
+				break;
+				case 'edit':
+					include('admin-edit.php'); 
+				break;					
+				default:
+					include('admin-dashboard.php');
+			}
+			 ?>
+	    
+	    </div><!-- closes content -->
+
+	</div><!-- close container -->    
 </div><!-- closes wrapper -->
+
 
 <?php } //end if logged in
 else{
 	echo 'You must be <a href="login.php">logged in</a> to view this content';	
 }?>
 
+
+<?php include('includes/footer.php'); ?>
 </body>
 </html>
 
